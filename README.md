@@ -1,7 +1,7 @@
 <h2 align="center"> BolichePontos </h2>
 
 <p align="center">
-This repo should auxiliate on the counting of score in bowling. It uses console .NET Core and xUnit for Unit Testing.
+This repo should auxiliate on the counting of score in bowling. It uses a .NET Core ClassLib for the logic and xUnit for Unit Testing.
 </p>
 
 <p align="center">
@@ -14,6 +14,10 @@ This repo should auxiliate on the counting of score in bowling. It uses console 
   <img alt="Contributors" src="https://img.shields.io/github/contributors/WesleyYS/bolichePontos">
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-orange">
+
+  <a href="https://www.linkedin.com/in/wesley-yago-da-silva/">
+    <img alt="Check out my LinkedIn!" src="https://img.shields.io/badge/-LinkedIn-black.svg?logo=linkedin&color=666">
+  </a>
 </p>
 
 ---
@@ -21,11 +25,50 @@ This repo should auxiliate on the counting of score in bowling. It uses console 
 ## Table of Contents
 
 <ul>
+  <li><a href="#-how-it-works">How it works</a></li>
   <li><a href="#-getting-started">Getting Started</a></li>
   <li><a href="#-features">Features</a></li>
   <li><a href="#-support">Support</a></li>
   <li><a href="#-license">License</a></li>
 </ul>
+
+---
+
+## 🎳 How it works
+
+### Rules
+
+The bowling score system works with the following rules:
+- the more pins knocked down with the least number of attempts (throws), the bigger the score
+- each game has always 10 frames
+- when the player knocks down 10 pins in a single throw, it's a strike
+- when the player knocks down 10 total pins in different throws but in the same frame, it's a spare
+- at each of the first 9 frames the player has 10 pins to knock down and:
+  - only 1 throw if the first ball hits a strike, or
+  - 2 throws if it doesn't
+- at the frame 10 the player has 10 pins to knock down (that are restored after each strike/spare) and:
+  - only 2 throws if none of the balls hit a strike or a spare, or
+  - 3 throws if at least one of them do
+- each pin knocked down is worth a point, but:
+  - every strike multiplies the score of the next 2 throws on the next frame, and
+  - every spare multiplies the score of the next throw on the next frame
+
+### Situations
+
+A normal match with no spares or strikes should last 20 throws
+
+If the player hits 1 pin at every single one of all the 20 throws, they should score 20.
+
+Two strikes in sequence should multiply the score of the next throw by 3.
+
+### Test Cases
+
+- [ ] Should score 0 for gutter game (all losses).
+- [ ] Should score 20 for simple game (1 pin at every throw).
+- [ ] Should score 16 for a spare followed by a 3 ball ([4 + 6] + [3])
+- [ ] Should score 24 for a strike followed by a 3 and a 4 ball ([10] + [3 + 4])
+- [ ] Should score 300 for a perfect game (12 strikes)
+- [ ] Should score 30 for a strike followed by a spare ([10] + [5 + 5])
 
 ---
 
@@ -44,10 +87,9 @@ Instructions to use:
 - enter the following command and press Enter:
 
 ```
-dotnet run
+dotnet test
 ```
 
-- fill in the amount of pins knocked down on each frame.
 - voilá!
 
 ---
@@ -55,11 +97,11 @@ dotnet run
 ## 📋 Features
 
 Via the command prompt the program should be capable to:
-- [ ] Fill in the amount of pins the user knocked down on each frame.
-- [ ] Show the score sum on each frame, calculating any extras given by strikes or spares.
-- [ ] Execute Unit Testing through xUnit and test the test cases describe on this document.
+- [ ] Calculate the amount of score for games with no strikes or spares.
+- [ ] Calculate the effect of strikes and spares on the score.
+- [ ] Execute Unit Testing through xUnit and test the test cases described on this document.
 
-The main idiom used is Brazilian Portuguese, my mother language.
+The main idiom used is `[🇧🇷] Brazilian Portuguese`, my mother tongue.
 
 ### Documentation
 
