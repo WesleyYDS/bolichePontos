@@ -55,20 +55,32 @@ The bowling score system works with the following rules:
 
 ### Situations
 
-A normal match with no spares or strikes should last 20 throws
+Expressions used in this section:
 
-If the player hits 1 pin at every single one of all the 20 throws, they should score 20.
+- normal throw: a ball thrown that hasn't scored a strike nor a spare.
+- special throw: a ball that has scored either a strike or a spare.
+
+A normal match with no special throws should last 20 throws.
+
+An 'extended match' would be one where a special throw of any kind is reached at the 10th frame, resulting in an extra throw.
+
+The least amount of score is 0 (all misses) and the highest is 300 (perfect match with 12 strikes).
+
+The least amount of throws is 11 (9 strikes followed by 2 throws at the 10th frame that are non-special) and the highest is 21 (18 normal throws followed by a strike or spare at the 10th frame).
 
 Two strikes in sequence should multiply the score of the next throw by 3.
 
 ### Test Cases
 
-- [ ] Should score 0 for gutter game (all losses).
-- [ ] Should score 20 for simple game (1 pin at every throw).
-- [ ] Should score 16 for a spare followed by a 3 ball ([4 + 6] + [3])
-- [ ] Should score 24 for a strike followed by a 3 and a 4 ball ([10] + [3 + 4])
-- [ ] Should score 300 for a perfect game (12 strikes)
-- [ ] Should score 30 for a strike followed by a spare ([10] + [5 + 5])
+- [X] Should score 0 for gutter game (all losses).
+- [X] Should score 20 for simple game (1 pin at every throw).
+- [X] Should score 16 for a spare followed by a 3 ball ([4 + 6] + [3])
+- [X] Should score 24 for a strike followed by a 3-point and a 4-point ball ([10] + [3 + 4])
+- [X] Should score 23 for two sequential spares ([4 + 6] + [3 + 7])
+- [X] Should score 300 for a perfect game (12 strikes)
+- [X] Should score 30 for a strike followed by a spare ([10] + [5 + 5])
+- [X] Should score 270 for 9 strikes followed by 5-point balls thrown 3 times at the 10th frame ([9 * 10] + [5 + 5 + 5])
+
 
 ---
 
@@ -77,7 +89,6 @@ Two strikes in sequence should multiply the score of the next throw by 3.
 ### Prerequisites
 
 - [.NET Core 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
-- [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48)
 
 ### Setup
 
@@ -97,9 +108,9 @@ dotnet test
 ## 📋 Features
 
 Via the command prompt the program should be capable to:
-- [ ] Calculate the amount of score for games with no strikes or spares.
-- [ ] Calculate the effect of strikes and spares on the score.
-- [ ] Execute Unit Testing through xUnit and test the test cases described on this document.
+- [X] Calculate the amount of score for games with no strikes or spares.
+- [X] Calculate the effect of strikes and spares on the score.
+- [X] Execute Unit Testing through xUnit and test the test cases described on this document.
 
 The main idiom used is `[🇧🇷] Brazilian Portuguese`, my mother tongue.
 
