@@ -5,13 +5,13 @@ This repo should auxiliate on the counting of score in bowling. It uses a .NET C
 </p>
 
 <p align="center">
-  <a href="https://github.com/WesleyYS">
+  <a href="https://github.com/HypThaNyx">
     <img alt="Made by Wesley Yago" src="https://img.shields.io/badge/made%20by-Wesley%20Yago-orange">
   </a>
 
-  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/WesleyYS/bolichePontos">
+  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/HypThaNyx/bolichePontos">
 
-  <img alt="Contributors" src="https://img.shields.io/github/contributors/WesleyYS/bolichePontos">
+  <img alt="Contributors" src="https://img.shields.io/github/contributors/HypThaNyx/bolichePontos">
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-orange">
 
@@ -113,6 +113,40 @@ Via the command prompt the program should be capable to:
 - [X] Execute Unit Testing through xUnit and test the test cases described on this document.
 
 The main idiom used is `[🇧🇷] Brazilian Portuguese`, my mother tongue.
+
+## Steps To Generate Coverage Reports
+
+1. Create a terminal instance in your tests project folder
+2. Add the coverlet package to your project
+
+    ``` bash
+    dotnet add package coverlet.msbuild
+    ```
+
+3. Install the dotnet reportgenerator to generate HTML previews of the coverage report
+
+    ``` bash
+    dotnet tool install -g dotnet-reportgenerator-globaltool
+    ```
+
+4. Run the test command with this parameter to generate the coverage report
+
+    ``` bash
+    dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=./lcov.info ./BowlingCounterApp.Tests
+    ```
+
+5. Run the reportgenerator command to generate the HTML coverage report
+
+    ``` bash
+    reportgenerator -reports:./BowlingCounterApp.Tests/lcov.info -targetdir:coveragereport -reporttypes:Html
+    ```
+
+6. It is also possible to run dotnet watch to rerun tests and generate coverage whenever a new change is detected to one of the project files
+
+    ``` bash
+    dotnet watch --project BowlingCounterApp.Tests test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=./lcov.info
+    ```
+
 
 ### Documentation
 
