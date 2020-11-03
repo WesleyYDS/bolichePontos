@@ -132,19 +132,19 @@ The main idiom used is `[🇧🇷] Brazilian Portuguese`, my mother tongue.
 4. Run the test command with this parameter to generate the coverage report
 
     ``` bash
-    dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=./lcov.info ./BowlingCounterApp.Tests
+    dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=./lcov.info ./bolicheTests
     ```
 
 5. Run the reportgenerator command to generate the HTML coverage report
 
     ``` bash
-    reportgenerator -reports:./BowlingCounterApp.Tests/lcov.info -targetdir:coveragereport -reporttypes:Html
+    reportgenerator -reports:./bolicheTests/lcov.info -targetdir:coveragereport -reporttypes:Html
     ```
 
 6. It is also possible to run dotnet watch to rerun tests and generate coverage whenever a new change is detected to one of the project files
 
     ``` bash
-    dotnet watch --project BowlingCounterApp.Tests test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=./lcov.info
+    dotnet watch --project bolicheTests test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=./lcov.info
     ```
 
 
