@@ -57,29 +57,30 @@ The bowling score system works with the following rules:
 
 Expressions used in this section:
 
-- normal throw: a ball thrown that hasn't scored a strike nor a spare.
-- special throw: a ball that has scored either a strike or a spare.
+- <b>normal throw</b>: a ball thrown that hasn't scored a strike nor a spare.
+- <b>special throw</b>: a ball that has scored either a strike or a spare.
 
-A normal match with no special throws should last 20 throws.
+A normal match with <b>no special throws</b> should last 20 throws.
 
-An 'extended match' would be one where a special throw of any kind is reached at the 10th frame, resulting in an extra throw.
+An 'extended match' would be one where a <b>special throw</b> of any kind is reached at the 10th frame, resulting in an extra throw.
 
 The least amount of score is 0 (all misses) and the highest is 300 (perfect match with 12 strikes).
 
-The least amount of throws is 11 (9 strikes followed by 2 throws at the 10th frame that are non-special) and the highest is 21 (18 normal throws followed by a strike or spare at the 10th frame).
+The least amount of throws is 11 (9 strikes followed by 2 <b>normal throws</b> at the 10th) and the highest is 21 (18 <b>normal throws</b> followed by a <b>special throw</b> at the 10th frame).
 
 Two strikes in sequence should multiply the score of the next throw by 3.
 
 ### Test Cases
 
 - [X] Should score 0 for gutter game (all losses).
-- [X] Should score 20 for simple game (1 pin at every throw).
-- [X] Should score 16 for a spare followed by a 3 ball ([4 + 6] + [3])
-- [X] Should score 24 for a strike followed by a 3-point and a 4-point ball ([10] + [3 + 4])
-- [X] Should score 23 for two sequential spares ([4 + 6] + [3 + 7])
+- [X] Should score 20 for simple game (all ones).
+- [X] Should score 16 for a spare followed by a 3 ball
+( [ 4️⃣ + 6️⃣ ] + 3️⃣ )
+- [X] Should score 24 for a strike followed by a 3-point and a 4-point ball ( 🔟 + [ 3️⃣ + 4️⃣ ] )
+- [X] Should score 23 for two sequential spares ( [ 4️⃣ + 6️⃣ ] + [ 3️⃣ + 7️⃣ ] )
 - [X] Should score 300 for a perfect game (12 strikes)
-- [X] Should score 30 for a strike followed by a spare ([10] + [5 + 5])
-- [X] Should score 270 for 9 strikes followed by 5-point balls thrown 3 times at the 10th frame ([9 * 10] + [5 + 5 + 5])
+- [X] Should score 30 for a strike followed by a spare ( 🔟 + [ 5️⃣ + 5️⃣ ] )
+- [X] Should score 270 for 9 strikes followed by 5-point balls thrown 3 times at the 10th frame ( [ 9️⃣ * 10 ] + [ 5️⃣ + 5️⃣ + 5️⃣ ] )
 
 
 ---
@@ -97,27 +98,28 @@ Instructions to use:
 - run a Shell prompt inside the project's main folder (bolichePontos)
 - enter the following command and press Enter:
 
-```
+``` bash
 dotnet test
 ```
 
-- voilá!
+- voilà!
 
 ---
 
 ## 📋 Features
 
-Via the command prompt the program should be capable to:
+The program should be able to:
 - [X] Calculate the amount of score for games with no strikes or spares.
 - [X] Calculate the effect of strikes and spares on the score.
 - [X] Execute Unit Testing through xUnit and test the test cases described on this document.
+- [X] Elaborate a full-covered Coverage Report.
 
 The main idiom used is `[🇧🇷] Brazilian Portuguese`, my mother tongue.
 
 ## Steps To Generate Coverage Reports
 
 1. Create a terminal instance in your tests project folder
-2. Add the coverlet package to your project
+2. Add the coverlet package to your project (this command has already been run in this project)
 
     ``` bash
     dotnet add package coverlet.msbuild
