@@ -10,7 +10,7 @@ namespace bolicheCore
         private int bolaAtual;
         public int scoreTotal;
 
-        public void jogarBola(int pinosDerrubados)
+        public void jogarBolaEContarPontos(int pinosDerrubados)
         {
             somarPontosBase(pinosDerrubados);
 

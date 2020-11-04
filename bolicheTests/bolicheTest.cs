@@ -12,20 +12,20 @@ namespace bolicheTests
         {
             for(int i = 0; i < quantidadeFrames; i++)
             {
-                partida.jogarBola(pinosDerrubados);
-                partida.jogarBola(pinosDerrubados);
+                partida.jogarBolaEContarPontos(pinosDerrubados);
+                partida.jogarBolaEContarPontos(pinosDerrubados);
             }
         }
 
         public void Strike(bolicheScore partida)
         {
-            partida.jogarBola(10);
+            partida.jogarBolaEContarPontos(10);
         }
 
         public void Spare(bolicheScore partida, int bola1, int bola2)
         {
-            partida.jogarBola(bola1);
-            partida.jogarBola(bola2);
+            partida.jogarBolaEContarPontos(bola1);
+            partida.jogarBolaEContarPontos(bola2);
         }
 
         [Fact]
@@ -60,8 +60,8 @@ namespace bolicheTests
 
             Spare(_partida, 4, 6);
 
-            _partida.jogarBola(3); //+3
-            _partida.jogarBola(0);
+            _partida.jogarBolaEContarPontos(3); //+3
+            _partida.jogarBolaEContarPontos(0);
 
             RepetirFramesIguais(_partida, 8, 0);
 
@@ -77,8 +77,8 @@ namespace bolicheTests
 
             Strike(_partida);
 
-            _partida.jogarBola(3); //+3
-            _partida.jogarBola(4); //+4
+            _partida.jogarBolaEContarPontos(3); //+3
+            _partida.jogarBolaEContarPontos(4); //+4
 
             RepetirFramesIguais(_partida, 8, 0);
 
@@ -144,9 +144,9 @@ namespace bolicheTests
                 Strike(_partida);
             }
 
-            _partida.jogarBola(5); //+10
-            _partida.jogarBola(5); //+5
-            _partida.jogarBola(5);
+            _partida.jogarBolaEContarPontos(5); //+10
+            _partida.jogarBolaEContarPontos(5); //+5
+            _partida.jogarBolaEContarPontos(5);
 
             int resultado = _partida.scoreTotal;
             Assert.Equal(270, resultado);

@@ -102,14 +102,14 @@ Along with using the official way of counting, when the score should be displaye
 
 ### Test Cases
 
-- [X] Should score 0 for gutter game: ` 20 * 0️⃣ `
-- [X] Should score 20 for all ones game: ` 20 * 1️⃣ `
-- [X] Should score 16 for a spare followed by a 3 ball: ` [ 4️⃣ + 6️⃣ ] + 3️⃣ `
-- [X] Should score 24 for a strike followed by a 3-point and a 4-point ball: ` 🔟 + [ 3️⃣ + 4️⃣ ] `
-- [X] Should score 23 for two sequential spares: ` [ 4️⃣ + 6️⃣ ] + [ 3️⃣ + 7️⃣ ] `
+- [X] Should score 0 for gutter game: ` 20 * 0 `
+- [X] Should score 20 for all ones game: ` 20 * 1 `
+- [X] Should score 16 for a spare followed by a 3 ball: ` [ 4 + 6 ] + 3 `
+- [X] Should score 24 for a strike followed by a 3-point and a 4-point ball: ` 🔟 + [ 3 + 4 ] `
+- [X] Should score 23 for two sequential spares: ` [ 4 + 6 ] + [ 3 + 7 ] `
 - [X] Should score 300 for a perfect game: ` 12 * 🔟 `
-- [X] Should score 30 for a strike followed by a spare: ` 🔟 + [ 5️⃣ + 5️⃣ ] `
-- [X] Should score 270 for 9 strikes followed by 5-point balls thrown 3 times at the 10th frame: ` [ 9️ * 🔟 ] + [ 5️⃣ + 5️⃣ + 5️⃣ ] `
+- [X] Should score 30 for a strike followed by a spare: ` 🔟 + [ 5 + 5 ] `
+- [X] Should score 270 for 9 strikes followed by 5-point balls thrown 3 times at the 10th frame: ` [ 9️ * 🔟 ] + [ 5 + 5 + 5 ] `
 
 
 ---
