@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace bolicheCore
+﻿namespace BolicheCore
 {
     public class bolicheScore
     {
@@ -8,7 +6,11 @@ namespace bolicheCore
         private int[,] pinosDerrubadosPorBola;
         private int frameAtual;
         private int bolaAtual;
-        public int scoreTotal;
+        private int scoreTotal;
+
+        public int getScoreTotal() { return scoreTotal; }
+
+        public void setScoreTotal(int value) { scoreTotal = value; }
 
         public void jogarBolaEContarPontos(int pinosDerrubados)
         {
@@ -34,16 +36,16 @@ namespace bolicheCore
         private void somarPontosBase(int pinosDerrubados)
         {
             pinosDerrubadosPorBola[frameAtual, bolaAtual] = pinosDerrubados;
-            scoreTotal += pinosDerrubados;
+            setScoreTotal(getScoreTotal() + pinosDerrubados);
         }
         
         private void somarPontosExtras(int pinosDerrubados)
         {
             if (valePontosEmDobro())
             {
-                scoreTotal += pinosDerrubados;
+                setScoreTotal(getScoreTotal() + pinosDerrubados);
 
-                if (valePontosEmTriplo()) scoreTotal += pinosDerrubados;
+                if (valePontosEmTriplo()) setScoreTotal(getScoreTotal() + pinosDerrubados);
             }
         }
 
@@ -51,12 +53,8 @@ namespace bolicheCore
         {
             if(frameAtual > 0)
             {
-                if (foiStrike(frameAtual-1) && bolaAtual < 2
-                 || foiSpare(frameAtual-1)  && bolaAtual == 0)
-                {
-                    return true;
-                }
-                else return false;
+                return(foiStrike(frameAtual-1) && bolaAtual < 2
+                 || foiSpare(frameAtual-1)  && bolaAtual == 0);
             }
             else return false;
         }
@@ -67,31 +65,19 @@ namespace bolicheCore
             && foiStrike(frameAtual-1)
             && bolaAtual == 0)
             {
-                if (foiStrike(frameAtual-2))
-                {
-                    return true;
-                }
-                else return false;
+                return (foiStrike(frameAtual-2));
             }
             else return false;
         }
 
         private bool foiStrike(int frame)
         {
-            if (pinosDerrubadosPorBola[frame,0] == 10)
-            {
-                return true;
-            }
-            else return false;
+            return (pinosDerrubadosPorBola[frame,0] == 10);
         }
 
         private bool foiSpare(int frame)
         {
-            if ((pinosDerrubadosPorBola[frame,0] + pinosDerrubadosPorBola[frame,1] == 10))
-            {
-                return true;
-            }
-            else return false;
+            return (pinosDerrubadosPorBola[frame,0] + pinosDerrubadosPorBola[frame,1] == 10);
         }
 
         public void iniciarPartida()
@@ -99,7 +85,7 @@ namespace bolicheCore
             pinosDerrubadosPorBola = new int[10,3];
             frameAtual = 0;
             bolaAtual = 0;
-            scoreTotal = 0;
+            setScoreTotal(0);
         }
     }
 }

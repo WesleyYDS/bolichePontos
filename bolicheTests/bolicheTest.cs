@@ -1,6 +1,6 @@
 using System;
 using Xunit;
-using bolicheCore;
+using BolicheCore;
 
 namespace bolicheTests
 {
@@ -36,7 +36,7 @@ namespace bolicheTests
 
             RepetirFramesIguais(_partida, 10, 0);
 
-            int resultado = _partida.scoreTotal;
+            int resultado = _partida.getScoreTotal();
             Assert.Equal(0, resultado);
         }
 
@@ -48,7 +48,7 @@ namespace bolicheTests
 
             RepetirFramesIguais(_partida, 10, 1);
 
-            int resultado = _partida.scoreTotal;
+            int resultado = _partida.getScoreTotal();
             Assert.Equal(20, resultado);
         }
 
@@ -65,7 +65,7 @@ namespace bolicheTests
 
             RepetirFramesIguais(_partida, 8, 0);
 
-            int resultado = _partida.scoreTotal;
+            int resultado = _partida.getScoreTotal();
             Assert.Equal(16, resultado);
         }
 
@@ -82,7 +82,7 @@ namespace bolicheTests
 
             RepetirFramesIguais(_partida, 8, 0);
 
-            int resultado = _partida.scoreTotal;
+            int resultado = _partida.getScoreTotal();
             Assert.Equal(24, resultado);
         }
 
@@ -98,7 +98,7 @@ namespace bolicheTests
 
             RepetirFramesIguais(_partida, 8, 0);
 
-            int resultado = _partida.scoreTotal;
+            int resultado = _partida.getScoreTotal();
             Assert.Equal(23, resultado);
         }
 
@@ -113,7 +113,7 @@ namespace bolicheTests
                 Strike(_partida);
             }
 
-            int resultado = _partida.scoreTotal;
+            int resultado = _partida.getScoreTotal();
             Assert.Equal(300, resultado);
         }
 
@@ -129,7 +129,7 @@ namespace bolicheTests
 
             RepetirFramesIguais(_partida, 8, 0);
 
-            int resultado = _partida.scoreTotal;
+            int resultado = _partida.getScoreTotal();
             Assert.Equal(30, resultado);
         }
 
@@ -148,7 +148,7 @@ namespace bolicheTests
             _partida.jogarBolaEContarPontos(5); //+5
             _partida.jogarBolaEContarPontos(5);
 
-            int resultado = _partida.scoreTotal;
+            int resultado = _partida.getScoreTotal();
             Assert.Equal(270, resultado);
         }
     }
