@@ -2,13 +2,13 @@ using System;
 using Xunit;
 using BolicheCore;
 
-namespace bolicheTests
+namespace BolicheTests
 {
-    public class bolicheTest
+    public class BolicheTest
     {
-        bolicheScore _partida;
+        BolicheScore _partida;
 
-        public void RepetirFramesIguais(bolicheScore partida, int quantidadeFrames, int pinosDerrubados)
+        public void RepetirFramesIguais(BolicheScore partida, int quantidadeFrames, int pinosDerrubados)
         {
             for(int i = 0; i < quantidadeFrames; i++)
             {
@@ -17,12 +17,12 @@ namespace bolicheTests
             }
         }
 
-        public void Strike(bolicheScore partida)
+        public void Strike(BolicheScore partida)
         {
             partida.jogarBolaEContarPontos(10);
         }
 
-        public void Spare(bolicheScore partida, int bola1, int bola2)
+        public void Spare(BolicheScore partida, int bola1, int bola2)
         {
             partida.jogarBolaEContarPontos(bola1);
             partida.jogarBolaEContarPontos(bola2);
@@ -31,7 +31,7 @@ namespace bolicheTests
         [Fact]
         public void TestTodosZeros()
         {
-            _partida = new bolicheScore();
+            _partida = new BolicheScore();
             _partida.iniciarPartida();
 
             RepetirFramesIguais(_partida, 10, 0);
@@ -43,7 +43,7 @@ namespace bolicheTests
         [Fact]
         public void TestTodosUm()
         {
-            _partida = new bolicheScore();
+            _partida = new BolicheScore();
             _partida.iniciarPartida();
 
             RepetirFramesIguais(_partida, 10, 1);
@@ -55,7 +55,7 @@ namespace bolicheTests
         [Fact]
         public void TestSpareMaisTres()
         {
-            _partida = new bolicheScore();
+            _partida = new BolicheScore();
             _partida.iniciarPartida();
 
             Spare(_partida, 4, 6);
@@ -72,7 +72,7 @@ namespace bolicheTests
         [Fact]
         public void TestStrikeMaisTresEQuatro()
         {
-            _partida = new bolicheScore();
+            _partida = new BolicheScore();
             _partida.iniciarPartida();
 
             Strike(_partida);
@@ -89,7 +89,7 @@ namespace bolicheTests
         [Fact]
         public void TestDoisSpares()
         {
-            _partida = new bolicheScore();
+            _partida = new BolicheScore();
             _partida.iniciarPartida();
 
             Spare(_partida, 4, 6);
@@ -105,7 +105,7 @@ namespace bolicheTests
         [Fact]
         public void TestJogoPerfeito()
         {
-            _partida = new bolicheScore();
+            _partida = new BolicheScore();
             _partida.iniciarPartida();
 
             for(int i = 0; i < 12; i++)
@@ -120,7 +120,7 @@ namespace bolicheTests
         [Fact]
         public void TestStrikeMaisSpare()
         {
-            _partida = new bolicheScore();
+            _partida = new BolicheScore();
             _partida.iniciarPartida();
 
             Strike(_partida);
@@ -136,7 +136,7 @@ namespace bolicheTests
         [Fact]
         public void TesteDecimoFrame()
         {
-            _partida = new bolicheScore();
+            _partida = new BolicheScore();
             _partida.iniciarPartida();
 
             for(int i = 0; i < 9; i++) //240

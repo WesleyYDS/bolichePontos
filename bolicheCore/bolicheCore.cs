@@ -1,6 +1,6 @@
 ﻿namespace BolicheCore
 {
-    public class bolicheScore
+    public class BolicheScore
     {
         //Quantos pinos foram derrubados [frame, bola], sem influência de multiplicadores
         private int[,] pinosDerrubadosPorBola;
